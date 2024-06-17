@@ -1,1 +1,7 @@
-
+if game.PlaceId == 4639625707 then -- War Tycoon
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+elseif game.PlaceId == 4483381587 then -- Test Baseplate
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+else
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+end
