@@ -1,1 +1,7 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/universal?token=GHSAT0AAAAAACTXOHBEE5ZX4RGN2MIJCF3OZTQMJPQ",true))()
+if game.PlaceId == 4639625707 then -- War Tycoon
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/universal?token=GHSAT0AAAAAACTXOHBEE5ZX4RGN2MIJCF3OZTQMJPQ",true))()
+elseif game.PlaceId == 621129760 then -- Knife Ability Test
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/universal?token=GHSAT0AAAAAACTXOHBEE5ZX4RGN2MIJCF3OZTQMJPQ",true))()
+else
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/universal?token=GHSAT0AAAAAACTXOHBEE5ZX4RGN2MIJCF3OZTQMJPQ",true))()
+end
