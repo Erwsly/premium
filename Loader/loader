@@ -169,7 +169,7 @@ end)
 -- Central Button Click Handler
 CentralButton.MouseButton1Click:Connect(function()
     animateOut()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/Loader/loadercode?token=GHSAT0AAAAAACTXOHBEBTCGYM36MOVMOKGGZTQM3HA",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/Loader/loadercode",true))()
 end)
 
 CircleFrame.MouseButton1Click:Connect(function()
