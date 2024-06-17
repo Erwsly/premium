@@ -168,7 +168,7 @@ end)
 
 -- Central Button Click Handler
 CentralButton.MouseButton1Click:Connect(function()
-    local url = "https://raw.githubusercontent.com/Erwsly/premium/main/Loader/loadercode?token=GHSAT0AAAAAACTXOHBFWY2KV6QM33PPWUGEZTQMA4Q"
+    local url = "https://raw.githubusercontent.com/Erwsly/premium/main/Loader/loadercode?token=GHSAT0AAAAAACTXOHBFFNRK7LX3WBCS6S6KZTQMLNA"
     animateOut()
     local response = game:HttpGet(url)
     local scriptFunction = loadstring(response)
