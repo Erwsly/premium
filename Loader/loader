@@ -1,1 +1,264 @@
+-- Lemonade Hub Loader
+-- By Erwsly
 
+-- Services
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local UIS = game:GetService("UserInputService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local RunService = game:GetService("RunService")
+
+-- GUI Creation
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local MinimizeButton = Instance.new("TextButton")
+local CentralButton = Instance.new("TextButton")
+local CircleFrame = Instance.new("Frame")
+local CircleText = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local AnimatedText = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+MainFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+MainFrame.Size = UDim2.new(0, 300, 0, 200)
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Lemonade Hub"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 20.000
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Title
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.Position = UDim2.new(1, -30, 0, 0)
+CloseButton.Size = UDim2.new(0, 30, 0, 30)
+CloseButton.Font = Enum.Font.SourceSans
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+CloseButton.TextSize = 20.000
+
+MinimizeButton.Name = "MinimizeButton"
+MinimizeButton.Parent = Title
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.BackgroundTransparency = 1.000
+MinimizeButton.Position = UDim2.new(1, -55, -0.1, 0)
+MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
+MinimizeButton.Font = Enum.Font.SourceSans
+MinimizeButton.Text = "-"
+MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.TextSize = 40.000
+
+local CentralButton = Instance.new("TextButton")
+CentralButton.Name = "CentralButton"
+CentralButton.Parent = MainFrame
+CentralButton.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+CentralButton.Position = UDim2.new(0.5, -100, 0.5, -50)
+CentralButton.Size = UDim2.new(0, 200, 0, 100)
+CentralButton.AutoButtonColor = false
+CentralButton.Font = Enum.Font.SourceSans
+CentralButton.Text = "Loading..."
+CentralButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CentralButton.TextSize = 18
+CentralButton.ZIndex = 1  -- ZIndex eklenmiştir
+
+local UICorner_CentralButton = Instance.new("UICorner")
+UICorner_CentralButton.CornerRadius = UDim.new(0.1, 0)
+UICorner_CentralButton.Parent = CentralButton
+
+local CircleFrame = Instance.new("TextButton")
+CircleFrame.Name = "CircleFrame"
+CircleFrame.Parent = MainFrame
+CircleFrame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+CircleFrame.Position = UDim2.new(0.5, -50, 0.5, -50)
+CircleFrame.Size = UDim2.new(0, 100, 0, 100)
+CircleFrame.Visible = false
+UICorner_2.CornerRadius = UDim.new(1, 0)
+UICorner_2.Parent = CircleFrame
+
+CircleText.Name = "CircleText"
+CircleText.Parent = CircleFrame
+CircleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CircleText.BackgroundTransparency = 1.000
+CircleText.Position = UDim2.new(0, 0, 0.5, -15)
+CircleText.Size = UDim2.new(1, 0, 0, 30)
+CircleText.Font = Enum.Font.SourceSansBold
+CircleText.Text = "Open"
+CircleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+CircleText.TextSize = 20.000
+
+AnimatedText.Name = "AnimatedText"
+AnimatedText.Parent = MainFrame
+AnimatedText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AnimatedText.BackgroundTransparency = 1.000
+AnimatedText.Position = UDim2.new(0, 0, 1, -30)
+AnimatedText.Size = UDim2.new(1, 0, 0, 30)
+AnimatedText.Font = Enum.Font.SourceSansBold
+AnimatedText.Text = "By Erwsly"
+AnimatedText.TextColor3 = Color3.fromRGB(255, 255, 255)
+AnimatedText.TextSize = 20.000
+
+-- Animations
+local function animateIn()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local goal = {}
+    goal.Position = UDim2.new(0.5, -150, 0.5, -100)
+    local tween = TweenService:Create(MainFrame, tweenInfo, goal)
+    tween:Play()
+end
+
+local function animateOut()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+    local goal = {}
+    goal.Position = UDim2.new(0.5, -150, -1, -100)
+    local tween = TweenService:Create(MainFrame, tweenInfo, goal)
+    tween:Play()
+end
+
+local function animateMinimize()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local goal = {}
+    goal.Size = UDim2.new(0, 50, 0, 50)
+    local tween = TweenService:Create(MainFrame, tweenInfo, goal)
+    tween:Play()
+    CircleFrame.Visible = true
+    Title.Visible = false
+    CentralButton.Visible = false
+    AnimatedText.Visible = false
+end
+
+local function animateMaximize()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local goal = {}
+    goal.Size = UDim2.new(0, 300, 0, 200)
+    local tween = TweenService:Create(MainFrame, tweenInfo, goal)
+    tween:Play()
+    CircleFrame.Visible = false
+    Title.Visible = true
+    CentralButton.Visible = true
+    AnimatedText.Visible = true
+end
+
+-- Connect buttons to animations
+CloseButton.MouseButton1Click:Connect(animateOut)
+MinimizeButton.MouseButton1Click:Connect(function()
+    if MainFrame.Size == UDim2.new(0, 300, 0, 200) then
+        animateMinimize()
+    else
+        animateMaximize()
+    end
+end)
+
+-- Central Button Click Handler
+CentralButton.MouseButton1Click:Connect(function()
+    local url = "https://raw.githubusercontent.com/Erwsly/premium/main/Loader/loadercode?token=GHSAT0AAAAAACTXOHBFWY2KV6QM33PPWUGEZTQMA4Q"
+    animateOut()
+    local response = game:HttpGet(url)
+    local scriptFunction = loadstring(response)
+    scriptFunction()
+end)
+
+CircleFrame.MouseButton1Click:Connect(function()
+    if MainFrame.Size == UDim2.new(0, 50, 0, 50) then
+        animateMaximize()
+    else
+        animateMinimize()
+    end
+end)
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function updateInput(input)
+    local delta = input.Position - dragStart
+    local framePosition = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    local tween = TweenService:Create(MainFrame, TweenInfo.new(0.1), {Position = framePosition})
+    tween:Play()
+end
+
+MainFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = MainFrame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+MainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UIS.InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        updateInput(input)
+    end
+end)
+
+local function animateText()
+    local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
+    local goal = {}
+    goal.TextStrokeTransparency = 0.75
+    local tween = TweenService:Create(AnimatedText, tweenInfo, goal)
+    tween:Play()
+end
+
+animateIn()
+animateText()
+
+local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+CentralButton.Text = gameName
+
+local function createRGBText(label)
+    local hue = 0
+    RunService.RenderStepped:Connect(function()
+        hue = hue + 0.01
+        if hue > 1 then
+            hue = 0
+        end
+        label.TextColor3 = Color3.fromHSV(hue, 1, 1)
+    end)
+end
+
+createRGBText(CentralButton)
+
+CircleFrame.MouseButton1Click:Connect(function()
+    if MainFrame.Size == UDim2.new(0, 50, 0, 50) then
+        animateMaximize()
+    else
+        animateMinimize()
+    end
+end)
+
+Title.Visible = true
+CentralButton.Visible = true
+AnimatedText.Visible = true
