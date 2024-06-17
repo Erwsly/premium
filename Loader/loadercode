@@ -1,7 +1,7 @@
 if game.PlaceId == 4639625707 then -- War Tycoon
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon?token=GHSAT0AAAAAACTXOHBF3Q5MO4R3W4IDHKNYZTQL7PA",true))()
 elseif game.PlaceId == 4483381587 then -- Test Baseplate
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon?token=GHSAT0AAAAAACTXOHBF3Q5MO4R3W4IDHKNYZTQL7PA",true))()
 else
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon",true))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/wartycoon?token=GHSAT0AAAAAACTXOHBF3Q5MO4R3W4IDHKNYZTQL7PA",true))()
 end
