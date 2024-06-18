@@ -1,8 +1,6 @@
 -- Lemonade Hub Loader
 -- By Erwsly
 
-animateIn()
-
 -- Services
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
