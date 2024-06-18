@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local LemonadeUI = loadstring(game:HttpGet('https://raw.githubusercontent.com/Erwsly/premium/main/PremiumScripts/lemonadeui'))()
 local MarketplaceService = game:GetService("MarketplaceService")
 
 local ESP = {
@@ -18,7 +18,7 @@ local Aimbot = {
 
 local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
 
-local Window = Rayfield:CreateWindow({
+local Window = LemonadeUI:CreateWindow({
     Name = "Lemonade HUB [" .. gameName .. "] | by erwsly",
     LoadingTitle = "Lemonade HUB",
     LoadingSubtitle = "by erwsly",
